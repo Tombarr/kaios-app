@@ -58,9 +58,13 @@ export async function fetchWithRetry(url, options = {}, retries = 3, backoff = 1
 }
 
 export function printProgress(msg = '') {
-    stdout.clearLine();
-    stdout.cursorTo(0);
-    stdout.write(msg);
+    if (typeof stdout.clearLine === 'function' && typeof stdout.cursorTo === 'function') {
+        stdout.clearLine(0);
+        stdout.cursorTo(0);
+        stdout.write(msg);
+    } else if (msg) {
+        console.log(msg);
+    }
 }
 
 export async function doAllSequentually(fnPromiseArr, delayMs = 1000) {

@@ -4,11 +4,15 @@ import 'dotenv/config';
 
 import { load } from 'cheerio';
 import { URL } from 'url';
-import { writeFile } from 'fs/promises';
+import { writeFile, mkdir } from 'fs/promises';
 console.log(process.env.DEVICES_URL);
 
 const url = new URL(process.env.DEVICES_URL + 'en/');
 const IMG_DIR = './device-imgs/';
+
+async function makeImgDir() {
+    await mkdir(IMG_DIR, { recursive: true });
+}
 
 function getDevicePage() {
     return fetch(url, {
@@ -90,6 +94,10 @@ function writeDevices(devices) {
 }
 
 getDevicePage()
+    .then(async (result) => {
+        await makeImgDir();
+        return result;
+    })
     .then(saveDevices)
     .then(downloadImages)
     .then(writeDevices)
