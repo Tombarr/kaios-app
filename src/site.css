@@ -1,0 +1,320 @@
+
+
+.app-list,
+.device-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: left;
+}
+
+.app-list li,
+.device-list li {
+    display: inline-block;
+    padding: 0.5rem;
+    min-width: 100px;
+    max-width: 100px;
+    text-align: center;
+    margin-block-end: 0.5rem;
+}
+
+.app-list li + li,
+.device-list li + li {
+    margin-inline-start: 0.5rem;
+}
+
+.app-list li img,
+.device-list li img {
+    display: inline-block;
+    float: none;
+    width: 52px;
+    height: 52px;
+}
+
+.app-list li span::before,
+.device-list li span::before {
+    content: "\A";
+    display: block;
+}
+
+.no-results {
+    display: none;
+}
+
+.search-container {
+    position: relative;
+    margin: 1rem 0 2rem 0;
+}
+
+#search {
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+#suggestions {
+    background-color: white;
+    padding: 1rem 0;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    top: 100%;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+#suggestions ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
+#suggestions ol li {
+    display: block;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+#suggestions ol li a {
+    padding: 0 1rem;
+    display: block;
+}
+
+#suggestions ol li a:hover,
+#suggestions ol li a:focus {
+    background-color: rgba(220, 220, 220, 0.3);
+}
+
+#suggestions ol li + li {
+    margin-block-start: 1rem;
+}
+
+#suggestions ol li img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    scroll-snap-align: start;
+}
+
+#suggestions ol li img + h4,
+#suggestions ol li img + h4 + span {
+    margin-inline-start: 60px;
+    display: block;
+}
+
+#suggestions ol li h4 {
+    margin: 0;
+}
+
+#suggestions ol li img {
+    width: 52px;
+    height: 52px;
+    float: left;
+    margin-inline-end: 0.5rem;
+}
+
+#suggestions ol li::after {
+    content: '\A';
+    display: block;
+    clear: both;
+}
+
+.app-list li a img,
+.device-list li a img,
+#suggestions ol li a img {
+    transition: filter 0.3s ease-in-out;
+    filter: drop-shadow(0 0 0.1rem black);
+}
+
+
+.app-list li a:hover img,
+.device-list li a:hover img,
+#suggestions ol li a:hover img,
+.app-list li a:focus img,
+.device-list li a:focus img,
+#suggestions ol li a:focus img {
+    transition: filter 0.3s ease-in-out;
+    filter: drop-shadow(0 0 0.1rem black);
+}
+
+.search-container label {
+    display: block;
+}
+
+.store-badge {
+    max-width: 512px;
+}
+
+.category-apps {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.category-apps li {
+    display: block;
+}
+
+.category-apps li + li {
+    margin-top: 0.5rem;
+}
+
+.category-apps li img {
+    vertical-align: middle;
+    margin-inline-end: 0.5rem;
+    filter: drop-shadow(0 0 0.1rem rgba(0, 0, 0, 0.5));
+}
+
+.app-header img {
+    vertical-align: middle;
+    margin-inline-end: 1rem;
+}
+
+.store-badge {
+    object-fit: contain;
+}
+
+.app-badges {
+    margin: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.app-badges > *:first-child + * {
+    margin-inline-start: 1rem;
+}
+
+.app-badges > * img {
+    width: 100%;
+}
+
+.app-badges > * {
+    width: 50%;
+}
+
+.last-updated {
+    opacity: 0.75;
+}
+
+.carousel {
+    margin: 0.5rem auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.slides {
+    width: 240px;
+    display: flex;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-anchor: none;
+}
+
+.slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slides-item {
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 100px;
+    height: 600px;
+    justify-content: center;
+    margin: 0 1rem;
+    position: relative;
+    scroll-snap-align: start;
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform .5s;
+    width: 100%;
+}
+
+.carousel__nav {
+    padding: 1.25rem .5rem;
+}
+
+.slider-nav {
+    align-items: center;
+    background-color: #ddd;
+    border-radius: 50%;
+    color: #000;
+    display: inline-flex;
+    height: 1.5rem;
+    justify-content: center;
+    padding: .5rem;
+    position: relative;
+    text-decoration: none;
+    width: 1.5rem;
+}
+
+.slider-nav + .slider-nav {
+    margin-inline-start: 0.5rem;
+}
+
+.slider-nav:hover,
+.slider-nav:active {
+    background-color: #000;
+    color: #fff;
+}
+
+.carousel__skip-link {
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 1px;
+}
+
+.carousel__skip-link:focus {
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    font-size: 30px;
+    height: 680px;
+    justify-content: center;
+    opacity: .8;
+    text-decoration: none;
+    width: 100%;
+    z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    .app-list li a img,
+    .device-list li a img,
+    #suggestions ol li a img {
+        filter: drop-shadow(0 0 0.1rem white);
+    }
+
+    .app-list li a:hover img,
+    .device-list li a:hover img,
+    #suggestions ol li a:hover img,
+    .app-list li a:focus img,
+    .device-list li a:focus img,
+    #suggestions ol li a:focus img {
+        filter: drop-shadow(0 0 0.25rem white);
+    }
+}
+
+:root > body > div[style^="margin-block-start"] {
+    overflow: hidden;
+    max-width: 100%;
+    display: block;
+}

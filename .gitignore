@@ -125,6 +125,9 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
+# macOS
+.DS_Store
+
 # yarn v3
 .pnp.*
 .yarn/*
@@ -137,3 +140,19 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Databases
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.sql
+
+# Compiled JS
+src/layout/*.js
+
+# Data Files
+data/device-imgs/*.png
+data/devices.json
+data/curef.json
+src/gen/

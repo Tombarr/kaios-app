@@ -1,0 +1,736 @@
+html {
+    font-size: 62.5%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1
+}
+
+:root {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.1;
+}
+
+:root body {
+    padding-block-end: 3rem;
+}
+
+img {
+    max-width: 100%;
+    user-select: none;
+}
+
+.center {
+    text-align: center;
+}
+
+body {
+    font-size: 2rem;
+    background-color: #fff
+}
+
+.subPageBody {
+    background-color: #fff
+}
+
+h1 {
+    font-size: 4.5rem
+}
+
+h2 {
+    font-size: 2.5rem
+}
+
+h3 {
+    font-size: 2rem
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #fff
+}
+
+a:link,
+a:hover,
+a:visited,
+a:active {
+    color: #1d63ea;
+    text-decoration: underline;
+    text-decoration-skip: edges;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+.imageWrapper {
+    height: 714px;
+    background: linear-gradient(rgba(54, 59, 61, 0.7), rgba(54, 59, 61, 0.7)), url("/img/kaios-header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    border-radius: 0px 0px 4rem 4rem;
+    backdrop-filter: blur(3px);
+}
+
+.white-border {
+    filter: drop-shadow( .1rem 0px 0px rgba(255,255,255,0.4))
+        drop-shadow(-.1rem 0px 0px rgba(255,255,255,0.4))
+        drop-shadow( 0px .1rem 0px rgba(255,255,255,0.4))
+        drop-shadow( 0px -.1rem 0px rgba(255,255,255,0.4));
+}
+
+.headerBackground {
+    height: 11.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+    .headerBackground {
+        height: 8rem
+    }
+}
+
+:root > body > div[style^="margin-block-start"] {
+    overflow: hidden;
+    max-width: 100%;
+    display: block;
+}
+
+.store-badge {
+    object-fit: contain;
+}
+
+.app-badges {
+    margin: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.app-badges > *:first-child + * {
+    margin-inline-start: 1rem;
+}
+
+.app-badges > * img {
+    width: 100%;
+}
+
+.app-badges > * {
+    width: 50%;
+}
+
+.app-badges[data-count="1"] {
+    display: block;
+}
+
+.app-badges[data-count="1"] > * {
+    width: 100%;
+}
+
+.subPageHeaderBackground {
+    background-color: #fff
+}
+
+.container {
+    display: grid;
+    margin: auto;
+    max-width: 1170px;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 115px 876px auto auto;
+    grid-column-gap: 30px;
+    backdrop-filter: blur(2px);
+    grid-template-areas: "h h h h h h h h h h h h""p p p p p i i i i i i i""c c c c c c c c c c c c""f f f f f f f f f f f f";
+}
+
+.subPageContainer {
+    grid-template-rows: 115px auto auto auto;
+    background-color: #fff
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        grid-template-rows: 80px 811px auto auto
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        grid-column-gap: 0px;
+        grid-template-columns: 1;
+        grid-template-rows: 115px auto auto auto auto;
+        grid-template-areas: "h h h h h h h h h h h h""i i i i i i i i i i i i""p p p p p p p p p p p p""c c c c c c c c c c c c""f f f f f f f f f f f f"
+    }
+}
+
+.page {
+    margin-block-start: 30px;
+    margin-block-end: 70px;
+    grid-column: 3/11
+}
+
+@media only screen and (max-width: 768px) {
+    .page {
+        margin-block-start: 30px;
+        margin-block-end: 70px;
+        grid-column: 1/-1
+    }
+}
+
+header {
+    grid-area: h;
+    display: flex;
+    margin-inline-end: -15px
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 115px;
+    margin-inline-end: 30px;
+}
+
+.logo > .headerName > a {
+    color: #fff;
+    white-space: nowrap;
+    display: flex;
+    font-weight: bold;
+    margin-inline-start: 15px
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        height: 80px;
+        margin-inline-end: 0px;
+    }
+
+    .logo>p {
+        display: none
+    }
+}
+
+.headerIcon {
+    width: 50px;
+    height: 50px;
+    -webkit-clip-path: url(#shape);
+    clip-path: url(#shape);
+    min-width: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+    .divider {
+        position: relative;
+        min-width: 1px;
+        max-width: 1px;
+        background-color: rgba(127, 127, 127, 0.2);
+        display: inline-block;
+        margin-inline-start: 15px
+    }
+}
+
+.scroll {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    height: 115px;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+@media only screen and (max-width: 768px) {
+    .scroll {
+        height: 80px;
+        padding-block-start: 100px;
+        padding-block-end: 100px;
+        margin-block-start: -60px;
+        justify-content: flex-start
+    }
+}
+
+.scroll::-webkit-scrollbar {
+    display: none
+}
+
+nav>ul {
+    color: #fff;
+    display: flex;
+    list-style-type: none
+}
+
+nav>ul li {
+    padding-inline-start: 30px
+}
+
+@media only screen and (max-width: 768px) {
+    nav>ul li {
+        padding-inline-start: 20px
+    }
+}
+
+nav>ul li:first-child {
+    padding-inline-start: 0px;
+    padding-inline-start: 15px
+}
+
+nav>ul li:last-child {
+    padding-inline-end: 15px
+}
+
+nav>ul li a:link,
+nav>ul li a:visited {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+nav>ul li a:hover,
+nav>ul li a:active {
+    text-decoration: none;
+    color: #fff
+}
+
+.subPageHeaderBackground .logo>p {
+    color: #000
+}
+
+.subPageHeaderBackground nav>ul li a:link,
+.subPageHeaderBackground nav>ul li a:visited {
+    color: rgba(0, 0, 0, 0.6)
+}
+
+.subPageHeaderBackground nav>ul li a:hover,
+.subPageHeaderBackground nav>ul li a:active {
+    color: #000
+}
+
+.appInfo {
+    grid-area: i;
+    display: flex;
+    flex-wrap: wrap;
+    padding-block-start: 12rem;
+    align-content: flex-start
+}
+
+@media only screen and (max-width: 992px) {
+    .appInfo {
+        padding-block-start: 50px;
+        justify-content: center
+    }
+}
+
+.appIconShadow, .appIconShadow > a {
+    display: flex;
+}
+
+.appIconLarge {
+    width: 120px;
+    height: 120px;
+    -webkit-clip-path: url(#shape120);
+    clip-path: url(#shape120)
+}
+
+.appNamePriceContainer {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-inline-start: 30px
+}
+
+.appName {
+    color: #fff
+}
+
+.appPrice {
+    color: #fff;
+    font-weight: normal;
+    margin-block-start: 13px
+}
+
+#app-details {
+    grid-area: c;
+    display: flex;
+    flex: 0 1 auto;
+    flex-grow: 0;
+    align-content: flex-start;
+    justify-content: flex-start;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    margin-block-start: -4rem;
+}
+
+#app-details > * {
+    width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+    #app-details > * {
+        width: 100%;
+        display: block;
+    }
+
+    #app-details > * + * {
+        margin-block-start: 4rem;
+    }
+}
+
+#app-details h3 + * {
+    padding-block-start: 1.2rem;
+}
+
+.key-stats {
+    line-height: 1.5;
+}
+
+#recommended-container {
+    max-width: 50rem;
+    overflow-x: hidden;
+}
+
+#recommened-container h3 + ol {
+    padding-block-start: 63px;
+    margin-block-start: 8px;
+    line-height: 1.5;
+}
+
+#recommended-container a {
+    text-decoration: none;
+}
+
+.app-list,
+.device-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: left;
+}
+
+.app-list li,
+.device-list li {
+    display: inline-block;
+    padding: 0.5rem;
+    min-width: 100px;
+    max-width: 100px;
+    text-align: center;
+    margin-block-end: 0.5rem;
+    margin-block-start: 1rem;
+}
+
+.app-list li + li,
+.device-list li + li {
+    margin-inline-start: 0.5rem;
+}
+
+.app-list li img,
+.device-list li img {
+    display: inline-block;
+    float: none;
+    width: 52px;
+    height: 52px;
+}
+
+.app-list li span::before,
+.device-list li span::before {
+    content: "\A";
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .appNamePriceContainer {
+        width: 100%;
+        margin-inline-start: 0px;
+        align-items: center;
+        justify-content: center
+    }
+
+    .appName {
+        margin-block-start: 30px;
+        text-align: center
+    }
+
+    .appPrice {
+        margin-block-start: 13px;
+        text-align: center
+    }
+}
+
+.appDescriptionContainer {
+    font-size: 2.5rem;
+    font-weight: normal;
+    width: 100%;
+    align-items: flex-start;
+    margin-block-start: 45px;
+    flex: 0 1 auto;
+    line-height: 1.5
+}
+
+.appDescription {
+    color: #fff
+}
+
+h3.appDescription {
+    font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 992px) {
+    .appDescription {
+        text-align: center
+    }
+}
+
+.downloadButtonsContainer {
+    display: inline-block;
+    margin-block-start: 42px;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1)) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.2))
+}
+
+@media only screen and (max-width: 992px) {
+    .downloadButtonsContainer {
+        text-align: center
+    }
+}
+
+.playStore {
+    height: 75px;
+    margin-inline-end: 24px
+}
+
+@media only screen and (max-width: 992px) {
+    .playStore {
+        margin-inline-end: 24px;
+        margin-block-end: 0px
+    }
+}
+
+@media only screen and (max-width: 528px) {
+    .playStore {
+        margin-inline-end: 0px;
+        margin-block-end: 24px
+    }
+}
+
+.appStore {
+    height: 75px
+}
+
+.preview-container {
+    grid-area: p;
+    height: 800px;
+    position: relative;
+}
+
+#jiophone-preview {
+    max-width: 350px;
+    max-height: 800px;
+    position: absolute;
+}
+
+.iphoneScreen {
+    width: 349px;
+    -webkit-clip-path: url(#screenMask);
+    clip-path: url(#screenMask);
+    margin-inline-start: 26px;
+    margin-block-start: 23px
+}
+
+@media only screen and (max-width: 1070px) {
+    #jiophone-preview {
+        max-width: 370px;
+    }
+
+    .iphoneScreen {
+        width: 322px;
+        margin-inline-start: 24px;
+        margin-block-start: 22px
+    }
+
+    .videoContainer {
+        width: 322px;
+        height: 698px;
+        margin-inline-start: 24px;
+        margin-block-start: 22px
+    }
+
+    .videoContainer>video {
+        width: 322px;
+        height: 698px
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .preview-container {
+        display: flex;
+        max-width: 260px;
+        background-position: center 0;
+        margin: -4rem auto 0 auto;
+        justify-content: center;
+        padding-block-end: 75px;
+    }
+
+    .iphoneScreen {
+        width: 226px;
+        height: 488px;
+        -webkit-clip-path: url(#screenMask);
+        clip-path: url(#screenMask);
+        margin: 0px;
+        margin-block-start: 17px
+    }
+
+    .videoContainer {
+        width: 226px;
+        height: 488px;
+        margin-inline-start: 0px;
+        margin-block-start: 17px
+    }
+
+    .videoContainer>video {
+        width: 226px;
+        height: 488px
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #jiophone-preview {
+        max-width: 100vw;
+        max-width: 100%;
+    }
+
+    .app-badges {
+        display: block;
+    }
+
+    .app-badges > * {
+        margin: 1rem auto;
+    }
+
+    .app-badges > :first-child + *{
+        width: 100%;
+        margin: 1rem auto;
+    }
+
+    .preview-container {
+        display: block;
+        width: 100vw;
+    }
+
+    #jiophone-preview {
+        margin-inline-start: -2rem
+    }
+}
+
+@media only screen and (max-width: 321px) {
+    .preview-container {
+        height: 650px;
+        margin-block-start: -150px;
+    }
+}
+
+.iconBack {
+    color: #e6e6e6
+}
+
+.iconTop {
+    color: #1d63ea
+}
+
+.socialIconBack {
+    color: #e6e6e6
+}
+
+.socialIconTop {
+    color: #666
+}
+
+footer {
+    grid-area: f;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.footerText {
+    color: #666;
+    display: block;
+    line-height: 1.5;
+    width: 100%;
+    text-align: center;
+    padding-block-start: 4rem;
+    padding-block-end: 4rem
+}
+
+.footerLinks {
+    display: flex;
+    text-align: center;
+    padding-block-end: 70px
+}
+
+.footerLinks a {
+    margin-inline-end: 30px
+}
+
+.footerLinks a:last-child {
+    margin-inline-end: 0px
+}
+
+@media only screen and (max-width: 768px) {
+    .footerLinks {
+        flex-direction: column
+    }
+
+    .footerLinks a {
+        justify-content: stretch;
+        margin-inline-end: 0px;
+        margin-block-start: 20px
+    }
+
+    .footerLinks a:first-child {
+        margin-block-start: 0px
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .footerText {
+        color: #666;
+        display: block;
+        line-height: 1.5;
+        width: 100%;
+        text-align: center;
+        padding-block-start: 54px;
+        padding-block-end: 61px
+    }
+
+    .footerIcons {
+        padding-block-end: 70px;
+        display: flex
+    }
+}
+
+.hidden {
+    display: none
+}

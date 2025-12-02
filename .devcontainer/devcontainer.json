@@ -1,0 +1,32 @@
+{
+	"name": "KaiOS App Builder",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:latest",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": false
+		}
+	},
+
+	// Install dependencies for better-sqlite3 compilation
+	"updateContentCommand": "sudo apt-get update && sudo apt-get install -y make g++ sqlite3",
+
+	// Install dependencies in both directories
+	"postCreateCommand": "cd data && npm install && cd ../src && npm install",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"ms-azuretools.vscode-docker",
+				"alexcvzz.vscode-sqlite"
+			],
+			"settings": {
+				"editor.formatOnSave": true
+			}
+		}
+	},
+
+	"remoteUser": "node"
+}

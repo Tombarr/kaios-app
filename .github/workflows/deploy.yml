@@ -1,0 +1,49 @@
+name: Build and deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Build and deploy to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Create .env file
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > data/.env
+
+      - name: Install Data Dependencies
+        working-directory: data
+        run: npm ci
+
+      - name: Install Src Dependencies
+        working-directory: src
+        run: npm ci
+
+      - name: Make script executable
+        run: chmod +x docker-entrypoint.sh
+
+      - name: Build Site
+        run: ./docker-entrypoint.sh
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: |
+            pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }} --commit-dirty=true
