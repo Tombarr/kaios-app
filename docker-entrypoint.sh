@@ -9,8 +9,18 @@ fi
 
 echo "Building database..."
 cd "$BASE_DIR/data"
-node devices.js
-node local.js
+
+if [ -f "devices.json" ]; then
+    echo "Skipping device fetch (devices.json exist)"
+else
+    node devices.js
+fi
+
+if [ -f "apps.db" ]; then
+    echo "Skipping app fetch (apps.db exists)"
+else
+    node local.js
+fi
 
 echo "Building website..."
 cd "$BASE_DIR/src"

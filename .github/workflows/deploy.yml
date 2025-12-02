@@ -7,12 +7,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    name: Build
     permissions:
       contents: read
       deployments: write
-    name: Build and deploy to Cloudflare Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,6 +21,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+
+      - name: Get Date
+        id: get-date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Cache Data
+        uses: actions/cache@v4
+        id: cache-data
+        with:
+          path: |
+            data/apps.db
+            data/device-imgs/
+            data/devices.json
+          key: data-cache-${{ steps.get-date.outputs.date }}-${{ hashFiles('data/package-lock.json', 'data/*.js') }}
 
       - name: Create .env file
         run: |
@@ -40,10 +54,36 @@ jobs:
       - name: Build Site
         run: ./docker-entrypoint.sh
 
+      - name: Upload DB
+        uses: actions/upload-artifact@v4
+        with:
+          name: apps-db
+          path: data/apps.db
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: output
+          path: output/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Deploy
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: output
+          path: output
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: |
-            pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }} --commit-dirty=true
+            pages deploy output --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --branch=${{ github.head_ref || github.ref_name }} --commit-dirty=true
